@@ -1,0 +1,52 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'sockMerchant' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER n
+#  2. INTEGER_ARRAY ar
+#
+
+def sockMerchant(n, ar):
+    i=0
+    c=0
+    pair=0
+    m_set=set(ar)
+    m_list=list(m_set)
+    length=len(m_list)
+    for i in range(length):
+        j=0
+        c=0
+        for j in range(n):
+            if(m_list[i]==ar[j]):
+                c=c+1
+        rep=c//2
+        pair=pair+rep
+    return pair            
+                
+                
+        
+        
+        
+    
+
+if _name_ == '_main_':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    ar = list(map(int, input().rstrip().split()))
+
+    result = sockMerchant(n, ar)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
